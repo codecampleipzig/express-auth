@@ -1,20 +1,31 @@
 <template>
-  <div class="container flex mx-auto min-h-screen justify-center items-center py-8">
+  <div
+    class="container flex mx-auto min-h-screen justify-center items-center py-8"
+  >
     <div class="w-screen max-w-lg mb-12 p-2">
       <header class="flex justify-center mb-6 text-4xl font-bold space-x-4">
         <h1
           class="cursor-pointer"
-          :class="mode == 'Sign In' ? 'text-blue-400' :  'text-gray-200'"
+          :class="mode == 'Sign In' ? 'text-blue-400' : 'text-gray-200'"
           @click="mode = 'Sign In'"
-        >Sign In</h1>
+        >
+          Sign In
+        </h1>
         <h1
           class="cursor-pointer"
-          :class="mode == 'Sign Up' ? 'text-blue-400' :  'text-gray-200'"
+          :class="mode == 'Sign Up' ? 'text-blue-400' : 'text-gray-200'"
           @click="mode = 'Sign Up'"
-        >Sign Up</h1>
+        >
+          Sign Up
+        </h1>
       </header>
       <form class="grid space-y-4" @submit.prevent="submit">
-        <input class="p-2 bg-gray-100" type="text" v-model="form.email" placeholder="Email" />
+        <input
+          class="p-2 bg-gray-100"
+          type="text"
+          v-model="form.email"
+          placeholder="Email"
+        />
         <input
           class="p-2 bg-gray-100"
           type="password"
@@ -48,10 +59,12 @@ export default {
     async submit() {
       if (this.form.email && this.form.password) {
         try {
-          await this.$store.dispatch(this.mode == "Sign In" ? "signin" : "signup", this.form);
-          this.$router.push({name: "Posts"})
-        }
-        catch(error) {
+          await this.$store.dispatch(
+            this.mode == "Sign In" ? "signin" : "signup",
+            this.form
+          );
+          this.$router.push({ name: "Posts" });
+        } catch (error) {
           console.error(error);
         }
       }
@@ -60,5 +73,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
