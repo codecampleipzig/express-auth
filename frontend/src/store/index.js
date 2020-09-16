@@ -14,7 +14,7 @@ export default new Vuex.Store({
     })
   ],
   state: {
-    user: { email: "" },
+    user: null,
     jwt: null,
     posts: [],
     notifications: []
